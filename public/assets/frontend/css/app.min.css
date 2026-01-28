@@ -1,0 +1,8 @@
+/* Bootstrap framework */
+@import "bootstrap.css";
+/* Plugins */
+@import "owl.carousel.css";
+@import "toastr.min.css";
+@import "style.css";
+/* Media queries / overrides */
+@import "media-query.css";
