@@ -100,52 +100,5 @@
     </div>
 </section>
 <!-- <div class="loader" id="loader" style="display:none;"></div> -->
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        
-        $("#contactForm").find("small").html('');
-        let form = e.target;
-        let formData = new FormData(form);
-        let url = "<?=url('/save_contact_us')?>";
-        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        let reloadUrl = "<?=url('thank-you')?>";
-        $('#ajax-loader').show();
-        fetch(url, {
-            method: 'POST',
-            // headers: {
-            // 'X-CSRF-TOKEN': token
-            // },
-            body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-            $('#ajax-loader').hide();
-            if (data.errors) {
-                if (data.errors.fname) {
-                    document.getElementById('fname-error').innerText = data.errors.fname;
-                }
-                if (data.errors.lname) {
-                    document.getElementById('lname-error').innerText = data.errors.lname;
-                }
-                // if (data.errors.email) {
-                //     document.getElementById('email-error').innerText = data.errors.email;
-                // }
-                if (data.errors.phone) {
-                    document.getElementById('phone-error').innerText = data.errors.phone;
-                }
-                if (data.errors.pp) {
-                    document.getElementById('agree-error').innerText = data.errors.pp;
-                }
-                // if (data.errors.time) {
-                //     document.getElementById('time-error').innerText = data.errors.time;
-                // }
-                return false;
-            }else if(data.message == 'success'){
-                window.location.href = reloadUrl;
-            }
-        })
-        
-    });
-</script>
+
 @endsection

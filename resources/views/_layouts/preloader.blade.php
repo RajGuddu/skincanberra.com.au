@@ -11,14 +11,4 @@ if($seg1 == ''){ ?>
 </div>
 <?php } ?>
 
-<script>
-    window.addEventListener("load", function() {
-        const preloader = document.getElementById('preloader');
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 300); 
-        }, 200); 
-    });
-</script>
+

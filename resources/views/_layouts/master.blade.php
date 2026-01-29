@@ -80,12 +80,19 @@
 
     <!-- Lightbox2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+
+    @php
+        $segment1 = Request::segment(1);
+    @endphp
+    @if($segment1 == 'book-online')
+        <link rel="stylesheet" href="{{ url('assets/calender/assets/simple-calendar.css') }}">
+    @endif
     
     <!-- custom css -->
     <?php /* <link rel="preload" href="{{ url('assets/frontend/css/preloader.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="{{ url('assets/frontend/css/ajaxloader.css') }}"as="style" onload="this.rel='stylesheet'"> */ ?>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script> -->
-    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}" ></script>
+    
     <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" ></script> -->
     
     <!-- Google tag (gtag.js) --> 
@@ -226,6 +233,7 @@
     </div> */ ?>
     <div class="loader" id="loader" style="display:none;"></div>
     
+    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}" ></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script> -->
@@ -238,6 +246,12 @@
     <script defer src="{{ asset('assets/frontend/js/toastr.min.js') }}"></script>
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
     <script defer src="{{ asset('assets/frontend/js/aos.js') }}"></script>
+    <script>
+        window.APP_URL = "{{ url('/') }}";
+    </script>
+    @if($segment1 == 'book-online')
+    <script src="{{ url('assets/calender/assets/jquery.simple-calendar.js') }}"></script>
+    @endif
     <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
     <!-- <script src="{{ asset('assets/frontend/js/app.min.js') }}"></script> -->
     <!-- Lightbox2 JS -->
@@ -377,10 +391,15 @@
         }); */ ?>
     </script>
     <script>
-        const videoModal = document.getElementById('videoModal');
-        const myVideo = document.getElementById('myVideo');
-        videoModal.addEventListener('hidden.bs.modal', () => {
-            myVideo.pause();
+        document.addEventListener('DOMContentLoaded', function () {
+            const videoModal = document.getElementById('videoModal');
+            const myVideo = document.getElementById('myVideo');
+
+            if (!videoModal || !myVideo) return;
+            
+            videoModal.addEventListener('hidden.bs.modal', () => {
+                myVideo.pause();
+            });
         });
     </script>
     <script>

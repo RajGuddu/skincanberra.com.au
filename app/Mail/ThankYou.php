@@ -27,7 +27,7 @@ class ThankYou extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Book An Appointment',
+            subject: 'Thank You For Choosing Us',
         );
     }
 
