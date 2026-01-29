@@ -33,10 +33,27 @@
                   <td style="border: 1px solid #ddd;">Location</td>
                   <td style="border: 1px solid #ddd;">Skin Canberra</td>
                 </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd;">Total Amount</td>
+                  <td style="border: 1px solid #ddd;">${{ $total_price }}</td>
+                </tr>
                 
               </table>
 
-              <p style="color: #555555; font-size: 15px; margin-top: 20px;">We look forward to seeing you soon!</p>
+              <!-- <p style="color: #555555; font-size: 15px; margin-top: 20px;">We look forward to seeing you soon!</p> -->
+              <div style="margin-top: 25px; text-align: center;">
+                <p style="color: #555555; font-size: 15px;">Please complete your payment using the link below:</p>
+                <a href="{{ STRIPE_PAY_LINK }}" 
+                          style="background-color: #006d6f; 
+                          color: #ffffff; 
+                          text-decoration: none; 
+                          padding: 12px 24px; 
+                          border-radius: 5px; 
+                          display: inline-block;
+                          font-size: 15px;">
+                          Pay Now
+                </a>
+              </div>
               <p style="color: #555555; font-size: 15px;">If you need to reschedule, simply reply to this email.</p>
               <p style="color: #555555; font-size: 15px;">Warm regards,</p>
 

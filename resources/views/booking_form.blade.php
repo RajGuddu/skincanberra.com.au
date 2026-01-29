@@ -84,7 +84,7 @@
                     <p class="small text-muted mb-2">{{ $formattedDateTime }}</p>
                     <!-- <a href="#" class="small text-decoration-none" style="color:#B4903A;">More details</a> -->
 
-                    <div class="mb-3">
+                    <?php /* <div class="mb-3">
                         <label class="form-label">Select Booking Deposit</label>
                         <input type="hidden" name="sp" id="sp" value="{{ $serviceDtls->sp }}">
                         <select class="form-control" name="booking_deposit" id="booking_deposit" onchange="calculate_price()">
@@ -92,16 +92,16 @@
                             <option value="2">50% Deposit</option>
                             <option value="3">25% Deposit</option>
                         </select>
-                    </div>
+                    </div> */ ?>
                     <hr>
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#policyModal" class="small text-decoration-none" style="color:#B4903A;">View Policy</a>
 
                     <div class="d-grid mt-4">
                         <!-- <button class="btn btn-outline-dark py-2 mb-2">Add to Cart</button> -->
-                        <button id="bookNowBtn" class="btn text-white py-2" style="background-color:#000;">Pay Now($50)</button>
-                        <?php /* <button id="bookNowBtn" class="btn text-white py-2" style="background-color:#000;">Pay Now(${{ $serviceDtls->sp }})</button>
-                        <button id="bookNowBtn" class="btn text-white py-2" style="background-color:#000;">Book Now</button> */ ?>
+                        <?php /* <button id="bookNowBtn" class="btn text-white py-2" style="background-color:#000;">Pay Now($50)</button> */ ?>
+                        <?php /* <button id="bookNowBtn" class="btn text-white py-2" style="background-color:#000;">Pay Now(${{ $serviceDtls->sp }})</button>*/ ?>
+                        <button id="bookNowBtn" class="btn text-white py-2" style="background-color:#000;">Book Now</button> 
                     </div>
                 </div>
             </div>

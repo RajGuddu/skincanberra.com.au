@@ -295,7 +295,7 @@ class Home extends Controller
         }
         return redirect()->to(url('book-online'));
     }
-    public function booking_form(Request $request){
+    /*public function booking_form(Request $request){
 
         if(session()->has('isBooking')){
             // dd(session()->all()); exit;
@@ -395,7 +395,7 @@ class Home extends Controller
             return view('booking_form', $data);
         }
         return redirect()->to(url('book-online'));
-    }
+    }*/
     public function booking_success(Request $request){
         $sessionId = $request->get('sid');
         
@@ -476,7 +476,7 @@ class Home extends Controller
     public function payment_cancel(Request $request){
         return view('payment_cancel');
     }
-    /*public function booking_form(Request $request){
+    public function booking_form(Request $request){
 
         if(session()->has('isBooking')){
             // dd(session()->all()); exit;
@@ -506,6 +506,7 @@ class Home extends Controller
                     $post['first_name'] = $request->input('first_name');
                     $post['last_name'] = $request->input('last_name');
                     $post['email'] = $request->input('email');
+                    $post['dob'] = date('Y-m-d',strtotime($request->input('dob')));
                     $post['country'] = $request->input('country');
                     $post['phone'] = $request->input('phone');
                     $post['message'] = $request->input('message');
@@ -565,7 +566,7 @@ class Home extends Controller
             return view('booking_form', $data);
         }
         return redirect()->to(url('book-online'));
-    }*/
+    }
     
     public function save_book_appointment_h(Request $request){
         if($request->isMethod('POST')){

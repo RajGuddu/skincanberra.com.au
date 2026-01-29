@@ -41,6 +41,7 @@ class Appointment extends Controller
                 'client_name' => $record->name,
                 'service_name' => $record->service_name.' ('.$record->variant.')',
                 'selected_date' => Carbon::parse($record->service_date . ' ' . $record->serv_time)->format('d F Y \a\t h:i a'),
+                'total_price' => $record->price,
             ];
 
             if($updated){
