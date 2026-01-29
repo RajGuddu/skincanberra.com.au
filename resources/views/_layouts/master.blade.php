@@ -57,7 +57,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.min.css') }}"> -->
+    <link rel="preload" href="{{ asset('assets/frontend/css/app.min.css') }}" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/frontend/css/app.min.css') }}"></noscript>
     <?php /*<link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
         rel="stylesheet">
@@ -396,7 +398,7 @@
             const myVideo = document.getElementById('myVideo');
 
             if (!videoModal || !myVideo) return;
-            
+
             videoModal.addEventListener('hidden.bs.modal', () => {
                 myVideo.pause();
             });
